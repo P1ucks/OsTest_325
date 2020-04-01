@@ -9,12 +9,12 @@ public class Consumer implements Runnable {
     //模拟缓冲区
     private Buffer buffer;
     //允许动态更改同步机制
-   // private Method method;
+    private Method method;
     //传入缓冲区地址，同步机制
-    public Consumer(Buffer buffer) {
+    public Consumer(Buffer buffer,Method method) {
         this.id = ++total;
         this.buffer = buffer;
-       // this.method = method;
+        this.method = method;
     }
     //打印消费者信息
     @Override
@@ -24,9 +24,9 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         while (true) {
-            TsUtil t = new TsUtil();
-            //Test-and-Set 方法
-            while(t.TS(lock.now));
+
+            //p操作
+           method.p();
             // 临界区代码
             if (buffer.notEmpty()) {
                 // 消费产品
@@ -34,7 +34,7 @@ public class Consumer implements Runnable {
                 System.out.println(this  + " 取走一件产品： " + buffer);
             }
             //退出区
-            lock.now = false;
+            method.v();
             //睡眠
             try{
                 int sleep = (int)(Math.random()*1000);

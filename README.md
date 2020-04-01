@@ -1,2 +1,3 @@
 # OsTest_325
 操作系统实验三
+Method和Semaphore没有用上
