@@ -25,7 +25,7 @@ public class Producer implements Runnable {
     public void run() {
         while (true) {
 
-            //Test-and-Set
+            //p操作
             method.p();
             // 临界区代码
             if (buffer.notFull()) {
@@ -33,7 +33,7 @@ public class Producer implements Runnable {
                 buffer.putItem();
                 System.out.println(this  + " 生产一件产品: " + buffer);
             }
-            //退出区
+            //v操作
             method.v();
             //睡眠
             try{

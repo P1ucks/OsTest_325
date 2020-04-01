@@ -24,7 +24,6 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         while (true) {
-
             //p操作
            method.p();
             // 临界区代码
@@ -33,7 +32,7 @@ public class Consumer implements Runnable {
                 buffer.getItem();
                 System.out.println(this  + " 取走一件产品： " + buffer);
             }
-            //退出区
+            //v操作
             method.v();
             //睡眠
             try{
