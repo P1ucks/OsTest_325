@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Semaphore implements Method{
     private int semValue;
     public Semaphore(int semValue){

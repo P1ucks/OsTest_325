@@ -5,6 +5,9 @@ public class Buffer {
     private int count = 0;
     //最大允许数量
     private int max;
+    public int getMax() {
+        return max;
+    }
     public Buffer(int max) {
         this.max = max;
     }
