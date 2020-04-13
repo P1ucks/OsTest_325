@@ -11,6 +11,7 @@ public class Producer implements Runnable {
         this.id = ++total;
         this.monitor = new Monitor(buffer,method,id);
     }
+    //管程
     private Monitor monitor;
     //打印生产者信息
     @Override

@@ -11,6 +11,7 @@ public class Consumer implements Runnable {
         this.id = ++total;
         this.monitor = new Monitor(buffer,method,id);
     }
+    //管程
     private Monitor monitor;
     //打印消费者信息
     @Override
